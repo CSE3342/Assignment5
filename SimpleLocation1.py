@@ -54,7 +54,6 @@ def parse_rhs(rhs):
     tokens = [tok.strip() for tok in tokens]
 
     for token in tokens:
-        token = token.strip()
         if token:
             if final_val is None:
                 final_val = 0
