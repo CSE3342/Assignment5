@@ -56,15 +56,18 @@ def parse_rhs(rhs):
 
             if is_int(token):
                 final_val += int(token)
-            elif is_valid_var(token) and var_dict[token]:
-                final_val += var_dict[token]
+            elif is_valid_variable_name(token):
+                if token in var_dict and var_dict[token]:
+                    final_val += var_dict[token]
+                else:
+                    raise Exception('`' + token + '` not declared or defined.')
             else:
-                raise Exception('Right hand side of assignment is invalid: `' + rhs + '`')
+                raise Exception('Invalid statement: `' + rhs + '`')
         else:
             raise Exception('Right hand side of assignment is empty.')
 
     if final_val is None:
-        raise Exception('Right hand side of assignment is invalid: `' + rhs + '`')
+        raise Exception('Invalid statement: `' + rhs + '`')
     else:
         return final_val
 
@@ -83,5 +86,5 @@ while True:
         else:
             print(eval_statement(instr))
     except Exception as error:
-        print('Error: ' + repr(error))
+        print('Error: ' + str(error))
 
