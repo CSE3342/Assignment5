@@ -23,7 +23,7 @@ def is_int(s):
 
 
 def is_valid_var(s):
- return s in var_dict
+    return s in var_dict
 
 
 def eval_statement(instr):
