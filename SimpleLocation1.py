@@ -1,3 +1,8 @@
+#Assignment 5 - Interpreter
+#Preston Tighe
+#CSE 3342
+#9-12-16
+
 from keyword import iskeyword
 import json
 
